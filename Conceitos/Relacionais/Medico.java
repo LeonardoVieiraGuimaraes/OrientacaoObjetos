@@ -1,4 +1,4 @@
-package Conceitos.Relacionais;
+package Relacionais;
 
 // Classe base Médico
 class Medico {

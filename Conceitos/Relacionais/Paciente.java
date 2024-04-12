@@ -1,4 +1,4 @@
-package Conceitos.Relacionais;
+package Relacionais;
 
 public class Paciente {
     private String nome;
