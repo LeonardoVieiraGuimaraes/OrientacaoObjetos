@@ -19,7 +19,7 @@ class Medico {
     }
 
     public void realizarProcedimento() {
-        System.out.println("Realizando uma ação genérica de um médico...");
+        System.out.println("Realizando uma ação Clinica de um médico...");
     }
 }
 
