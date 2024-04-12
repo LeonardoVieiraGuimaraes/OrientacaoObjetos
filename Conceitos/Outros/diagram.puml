@@ -1,0 +1,90 @@
+@startuml
+
+class Pessoa {
+    - String nome
+    - Date dataNascimento
+    - Endereco endereco
+}
+
+class Paciente {
+    + void cadastrar()
+    + void alterar()
+    + void excluir()
+    + Paciente consultar(String CPF)
+    + Paciente[] consultarPorNome(String nome)
+    - String CPF
+    - Plano plano
+}
+
+class Medico {
+    + void cadastrar()
+    + void alterar()
+    + void excluir()
+    + Medico consultar(int CRM)
+    + Medico[] consultarPorNome(String nome)
+    - int CRM
+    - Especialidade[] especialidades
+    - double valorHora
+}
+
+class Consulta {
+    + void marcar(Medico medico, Paciente paciente, Date data)
+    + void cancelar()
+    + Consulta[] pesquisarPorPaciente(Paciente paciente)
+    - Paciente paciente
+    - Medico medico
+    - Date data
+    - String receituario
+    - double valor
+}
+
+class Procedimento {
+    + void marcar(Medico medico, Paciente paciente, Date data)
+    + void cancelar()
+    + Procedimento[] pesquisarPorMedico(Medico medico)
+    + abstract double calcularTotal()
+    - Paciente paciente
+    - Medico[] medicos
+    - Date data
+    - Sala sala
+    - String observacoes
+    - double valor
+    - int tempoDuracao
+}
+
+class Endereco {
+    - String logradouro
+    - int numero
+    - String bairro
+    - String CEP
+}
+
+class Plano {
+    - String nome
+    - double mensalidade
+}
+
+class Especialidade {
+    - String nome
+}
+
+class Sala {
+    - String nome
+}
+
+interface ITransmissaoDadosMinisterioSaude {
+    + void gerarDados()
+}
+
+Pessoa <|-- Paciente
+Pessoa <|-- Medico
+Paciente -- Plano
+Pessoa -- Endereco
+Medico -- Especialidade
+Consulta -- Paciente
+Consulta -- Medico
+Procedimento -- Paciente
+Procedimento -- Medico
+Procedimento -- Sala
+
+@enduml
