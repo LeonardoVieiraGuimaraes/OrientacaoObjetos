@@ -1,13 +1,12 @@
 package Relacionais;
 
-public class Paciente {
-    private String nome;
-    private int idade;
+public class Paciente extends Pessoa {
+    private String doenca;
 
     // Construtor
-    public Paciente(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
+    public Paciente(String nome, int idade, String doenca) {
+        super(nome, idade);
+        this.doenca = doenca;
     }
 
     // Getters e Setters

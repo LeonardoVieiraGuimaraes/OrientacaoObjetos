@@ -9,7 +9,7 @@ public class Main {
         Medico medico2 = new Obstetra("Dr. Carlos");
         Medico medico3 = new Pediatra("Dr. Pedro");
 
-        Paciente paciente1 = new Paciente("João", 25);
+        Paciente paciente1 = new Paciente("João", 25, "Gripe");
 
         paciente1.solicitarProcedimento(medico0);
         paciente1.solicitarProcedimento(medico1);
