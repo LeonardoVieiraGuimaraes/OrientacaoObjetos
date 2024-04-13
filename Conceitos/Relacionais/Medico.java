@@ -1,21 +1,21 @@
 package Relacionais;
 
 // Classe base Médico
-class Medico {
-    private String nome;
+class Medico extends Funcionario {
+    private String especialidade;
 
-    // Construtor
-    public Medico(String nome) {
-        this.nome = nome;
+    public Medico(String nome, int idade, String cargo, String especialidade) {
+        super(nome, idade, cargo);
+        this.especialidade = especialidade;
     }
 
     // Getters e Setters
     public String getNome() {
-        return nome;
+        return super.getNome();
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        super.setNome(nome);
     }
 
     public void realizarProcedimento() {
@@ -25,9 +25,8 @@ class Medico {
 
 // Subclasse Anestesista
 class Anestesista extends Medico {
-    public Anestesista(String nome) {
-        super(nome);
-        // TODO Auto-generated constructor stub
+    public Anestesista(String nome, int idade, String cargo, String especialidade) {
+        super(nome, idade, cargo, especialidade);
     }
 
     @Override
@@ -38,9 +37,8 @@ class Anestesista extends Medico {
 
 // Subclasse Obstetra
 class Obstetra extends Medico {
-    public Obstetra(String nome) {
-        super(nome);
-        // TODO Auto-generated constructor stub
+    public Obstetra(String nome, int idade, String cargo, String especialidade) {
+        super(nome, idade, cargo, especialidade);
     }
 
     @Override
@@ -51,13 +49,24 @@ class Obstetra extends Medico {
 
 // Subclasse Pediatra
 class Pediatra extends Medico {
-    public Pediatra(String nome) {
-        super(nome);
-        // TODO Auto-generated constructor stub
+    public Pediatra(String nome, int idade, String cargo, String especialidade) {
+        super(nome, idade, cargo, especialidade);
     }
 
     @Override
     public void realizarProcedimento() {
         System.out.println("Verificando a saúde do recém-nascido...");
+    }
+}
+
+// Subclasse Residente
+class Residente extends Medico {
+    public Residente(String nome, int idade, String cargo, String especialidade) {
+        super(nome, idade, cargo, especialidade);
+    }
+
+    @Override
+    public void realizarProcedimento() {
+        System.out.println("Em Treinamento para realizar procedimentos...");
     }
 }

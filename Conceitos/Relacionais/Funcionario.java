@@ -8,5 +8,15 @@ public class Funcionario extends Pessoa {
         this.cargo = cargo;
     }
 
+    public String getNome() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getNome'");
+    }
+
+    public void setNome(String nome) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setNome'");
+    }
+
     // getters e setters
 }

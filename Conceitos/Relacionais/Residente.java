@@ -1,10 +1,5 @@
 package Relacionais;
 
-// Interface Medico
-public interface Medico {
-    void realizarProcedimento();
-}
-
 // Classe Residente que herda de Funcionario e implementa Medico
 public class Residente extends Funcionario implements Medico {
     private String especialidade;
