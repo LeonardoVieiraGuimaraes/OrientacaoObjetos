@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+object "Pessoa 1" as p1 {
+    nome : "João"
+    endereco : "Rua A, 123"
+}
+
+object "Livro 1" as l1 {
+    titulo : "O Senhor dos Anéis"
+    autor : "J.R.R. Tolkien"
+}
+
+object "Emprestimo 1" as e1 {
+    dataEmprestimo : "2022-01-01"
+    dataDevolucao : "2022-01-31"
+}
+
+p1 -- e1 : realiza
+e1 -- l1 : envolve
+@enduml

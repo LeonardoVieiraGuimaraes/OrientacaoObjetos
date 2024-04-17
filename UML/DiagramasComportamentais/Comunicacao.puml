@@ -1,0 +1,11 @@
+@startuml
+autonumber
+Usuário -> Sistema: Login
+Sistema -> BancoDeDados: Verifica Credenciais
+BancoDeDados --> Sistema: Resposta Credenciais
+alt Credenciais Válidas
+    Sistema --> Usuário: Acesso Permitido
+else Credenciais Inválidas
+    Sistema --> Usuário: Acesso Negado
+end
+@enduml

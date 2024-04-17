@@ -1,0 +1,18 @@
+@startuml
+package "Sistema de Pagamento" {
+    [Processador de Pagamento]
+    [Gateway de Pagamento]
+}
+
+node "Sistema de Inventário" {
+    [Gerenciador de Estoque]
+    [Gerenciador de Produto]
+}
+
+[Interface do Usuário]
+
+[Processador de Pagamento] ..> [Gateway de Pagamento] : usa
+[Gerenciador de Estoque] ..> [Gerenciador de Produto] : usa
+[Interface do Usuário] ..> [Sistema de Pagamento] : usa
+[Interface do Usuário] ..> [Sistema de Inventário] : usa
+@enduml

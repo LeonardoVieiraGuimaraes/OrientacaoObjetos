@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+package "Aplicativo Web" {
+    package "Model" {
+        [Usuário]
+        [Produto]
+    }
+
+    package "View" {
+        [Página de Usuário]
+        [Página de Produto]
+    }
+
+    package "Controller" {
+        [Controlador de Usuário]
+        [Controlador de Produto]
+    }
+}
+
+[View] ..> [Controller] : usa
+[Controller] ..> [Model] : usa
+@enduml

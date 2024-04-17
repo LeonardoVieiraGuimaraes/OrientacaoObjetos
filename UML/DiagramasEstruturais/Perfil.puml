@@ -1,0 +1,20 @@
+@startuml
+class Paciente {
+    + nome : String
+    + idade : Integer
+    + historicoMedico : String
+}
+
+class Médico {
+    + nome : String
+    + especialidade : String
+}
+
+class Consulta {
+    + data : Date
+    + local : String
+}
+
+Paciente "1" -- "n" Consulta : realiza >
+Médico "1" -- "n" Consulta : realiza >
+@enduml

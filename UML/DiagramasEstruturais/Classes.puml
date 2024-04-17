@@ -1,0 +1,36 @@
+@startuml
+
+!theme reddress-darkblue
+left to right direction
+skinparam classAttributeIconSize 0
+class Pessoa {
+  - nome : String
+  - endereco : String
+  + getNome() : String
+  + getEndereco() : String
+  + setNome(nome : String)
+  + setEndereco(endereco : String)
+}
+
+class Livro {
+  - titulo : String
+  - autor : String
+  + getTitulo() : String
+  + getAutor() : String
+  + setTitulo(titulo : String)
+  + setAutor(autor : String)
+}
+
+class Emprestimo {
+  - dataEmprestimo : Date
+  - dataDevolucao : Date
+  + getDataEmprestimo() : Date
+  + getDataDevolucao() : Date
+  + setDataEmprestimo(dataEmprestimo : Date)
+  + setDataDevolucao(dataDevolucao : Date)
+}
+
+Pessoa "1" -- "0..*" Emprestimo : realiza >
+Emprestimo "0..*" -- "1" Livro : envolve >
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+actor Cliente
+actor "Funcionario"
+
+left to right direction
+rectangle "Sistema de Pedidos" {
+    usecase "Fazer Pedido" as UC1
+    usecase "Pagar Pedido" as UC2
+    usecase "Receber Pedido" as UC3
+    usecase "Verificar Estoque" as UC4
+    usecase "Emitir Nota Fiscal" as UC5
+    
+}
+
+Cliente --> UC1 
+Cliente --> UC2 
+UC2 --> Funcionario 
+UC1 <-- "Funcionario" 
+UC4 <-- "Funcionario" 
+UC5 <-- "Funcionario" 
+Cliente --> UC3 
+
+
+UC1 ..> UC4 : <<include>>
+UC3 ..> UC5 : <<extend>>
+
+@enduml
+

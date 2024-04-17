@@ -1,0 +1,20 @@
+@startuml
+robust "Cliente" as C
+concise "Sistema" as S
+
+@0
+C is Idle
+S is Idle
+
+@+5
+C -> S: Faz Pedido
+C is Waiting
+S is Processing
+
+@+10
+S --> C: Confirma Pedido
+C is Satisfied
+S is Idle
+@enduml
+
+

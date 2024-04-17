@@ -1,0 +1,11 @@
+@startuml
+start
+:Cliente faz pedido;
+if (Pedido aprovado?) then (sim)
+    :Entrega pedido;
+    stop
+else (não)
+    :Informa cliente sobre falha no pedido;
+    stop
+endif
+@enduml

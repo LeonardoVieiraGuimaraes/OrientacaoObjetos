@@ -1,0 +1,12 @@
+@startuml
+autonumber
+ref over Cliente, Sistema: Faz Pedido
+Cliente -> Sistema: Faz Pedido
+Sistema --> Cliente: Confirma Pedido
+ref over Sistema, Estoque: Verifica Disponibilidade
+Sistema -> Estoque: Verifica Disponibilidade
+Estoque --> Sistema: Resposta Disponibilidade
+ref over Sistema, Pagamento: Processa Pagamento
+Sistema -> Pagamento: Processa Pagamento
+Pagamento --> Sistema: Resposta Pagamento
+@enduml

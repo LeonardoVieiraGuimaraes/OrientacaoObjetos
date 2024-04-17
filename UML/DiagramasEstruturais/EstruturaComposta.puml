@@ -1,0 +1,27 @@
+@startuml
+package "Computador" {
+  class "CPU" {
+    + execute()
+  }
+
+  class "Memória" {
+    + read()
+    + write()
+  }
+
+  class "Disco Rigido" {
+    + read()
+    + write()
+  }
+}
+
+class "Computador2" {
+  + cpu : CPU
+  + memória : Memória
+  + discoRigido : "Disco Rigido"
+}
+
+Computador2 *-- "1" CPU : contém
+Computador2 *-- "1" Memória : contém
+Computador2 *-- "1" Disco Rigido : contém
+@enduml

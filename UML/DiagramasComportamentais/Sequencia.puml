@@ -1,0 +1,17 @@
+@startuml
+autonumber
+Cliente -> Sistema: Faz Pedido
+Sistema -> Estoque: Verifica Disponibilidade
+Estoque --> Sistema: Resposta Disponibilidade
+alt Disponibilidade Confirmada
+    Sistema -> Pagamento: Processa Pagamento
+    Pagamento --> Sistema: Resposta Pagamento
+    alt Pagamento Aprovado
+        Sistema --> Cliente: Pedido Confirmado
+    else Pagamento Negado
+        Sistema --> Cliente: Falha no Pagamento
+    end
+else Disponibilidade Negada
+    Sistema --> Cliente: Estoque Indisponível
+end
+@enduml

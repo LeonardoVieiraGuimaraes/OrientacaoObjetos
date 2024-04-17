@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+node "Servidor Web" as web {
+    artifact "Interface do Usuário"
+}
+
+node "Servidor de Aplicação" as app {
+    artifact "Sistema de Pagamento"
+    artifact "Sistema de Inventário"
+}
+
+node "Servidor de Banco de Dados" as db {
+    artifact "Banco de Dados"
+}
+
+web ..> app : Envia Requisições
+app ..> db : Consulta/Atualiza
+@enduml
