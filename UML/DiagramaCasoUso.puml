@@ -1,0 +1,36 @@
+@startuml
+rectangle "Caso de Uso do Sistema Bancário" {
+    left to right direction
+actor Cliente
+actor Funcionario
+actor Gerente
+
+rectangle "Sistema Bancário" {
+    Cliente -- (Abrir Conta)
+    Cliente -- (Emitir Extrato)
+    Cliente -- (Fechar Conta)
+    Cliente -- (Consultar Saldo)
+    Cliente -- (Realizar Depósito)
+    Cliente -- (Realizar Saque)
+    Cliente -- (Transferir Dinheiro)
+    Cliente -- (Pagar Contas)   
+    (Abrir Conta) -- Funcionario
+    (Realizar Depósito) -- Funcionario
+    (Fechar Conta) -- Gerente
+     
+   (Abrir Conta) -> (Conta Poupança) : <<include>>
+    (Abrir Conta) -> (Conta Corrente) : <<include>>
+    (Realizar Saque) .> (Conta Corrente) : <<include>>
+    (Realizar Saque) .> (Conta Poupança) : <<include>>
+    (Fechar Conta) .> (Realizar Saque) : <<extend>>
+    
+
+
+    
+}
+
+
+
+}
+
+@enduml

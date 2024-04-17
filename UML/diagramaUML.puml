@@ -1,0 +1,37 @@
+@startuml Diagrama_UML
+' Configurações globais
+skinparam defaultFontName Arial
+skinparam node {
+    BackgroundColor White
+    BorderColor Black
+}
+skinparam arrow {
+    FontSize 20
+}
+
+left to right direction
+rectangle "Diagramas UML" as UML {
+          center [
+        rectangle "Diagramas Estruturais"  as Estruturais{
+            rectangle "Diagrama de Classes"
+            rectangle "Diagrama de Objetos"
+            rectangle "Diagrama de Componentes"
+            rectangle "Diagrama de Implantação"
+            rectangle "Diagrama de Pacotes"
+            rectangle "Diagrama de Estrutura Composta"
+            rectangle "Diagrama de Perfil"
+        }
+        rectangle "Diagramas Comportamentais" as Comportamentais{
+            rectangle "Diagrama de Caso de Uso"
+            rectangle "Diagrama de Atividades"
+            rectangle "Diagrama de Maquina de Estados"
+            rectangle "Diagrama de Interação" {
+                rectangle "Diagrama de Sequência"
+                rectangle "Diagrama de Comunicação"
+                rectangle "Diagrama de Visão Geral de Interação"
+                rectangle "Diagrama de Temporização"
+            }
+        }
+          ]
+}
+@enduml
