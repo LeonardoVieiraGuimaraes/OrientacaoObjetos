@@ -1,11 +1,17 @@
 @startuml
-autonumber
-Usuário -> Sistema: Login
-Sistema -> BancoDeDados: Verifica Credenciais
-BancoDeDados --> Sistema: Resposta Credenciais
-alt Credenciais Válidas
-    Sistema --> Usuário: Acesso Permitido
-else Credenciais Inválidas
-    Sistema --> Usuário: Acesso Negado
-end
+actor Ator as "trabalhador : Funcionário\nProvedor de Internet"
+boundary View as "formularioLogin : LoginForm"
+control Controller as "ControllerUsuarios:\n UsersController"
+entity Modelo as "BancoFuncionarios : Worker"
+
+Ator - (View): "1: abrirFormulario()\n2: inserirDadosAutenticacao()\n12:fecharFormulario()\n<&arrow-right>"
+View - View : "3: verificarDados()\n11: mostrarMensagem()\n<&loop-circular>"
+(View) -- (Controller) : "4: verificarLogin()\n6: verificarSenha()\n8: aumentarContador()\n9: obterGrupoUsuario()\n<&arrow-bottom>"
+(Controller) -left- (Modelo) : "5: selecionar()\n7: selecionar()\n9: selecionar()\n<&arrow-left>"
+
+'Outros ícones de setas
+'<&arrow-left>
+'<&arrow-right>
+'<&arrow-top>
+'<&arrow-bottom>
 @enduml

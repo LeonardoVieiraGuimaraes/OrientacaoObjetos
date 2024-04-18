@@ -1,5 +1,10 @@
-@startuml
+@startuml ProcessoPedido
 autonumber
+actor Cliente
+boundary Sistema
+control Estoque
+database Pagamento
+
 Cliente -> Sistema: Faz Pedido
 Sistema -> Estoque: Verifica Disponibilidade
 Estoque --> Sistema: Resposta Disponibilidade

@@ -9,19 +9,21 @@ package "Computador" {
     + write()
   }
 
-  class "Disco Rigido" {
+  class "DiscoRigido" {
     + read()
     + write()
   }
 }
 
-class "Computador2" {
+class "ComputadorPessoal" {
   + cpu : CPU
   + memória : Memória
   + discoRigido : "Disco Rigido"
 }
 
-Computador2 *-- "1" CPU : contém
-Computador2 *-- "1" Memória : contém
-Computador2 *-- "1" Disco Rigido : contém
+ComputadorPessoal *-- "1" CPU : contém
+ComputadorPessoal *-- "1" Memória : contém
+ComputadorPessoal *-- "1" DiscoRigido : contém
+
+
 @enduml

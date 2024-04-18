@@ -1,4 +1,4 @@
-@startuml
+@startuml ProcessoPedido
 start
 :Cliente faz pedido;
 if (Pedido aprovado?) then (sim)

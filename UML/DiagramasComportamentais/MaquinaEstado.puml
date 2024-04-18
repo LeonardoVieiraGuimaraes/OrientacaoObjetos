@@ -1,4 +1,4 @@
-@startuml
+@startuml ProcessoPedido
 [*] --> NovoPedido
 NovoPedido --> PedidoAprovado : Aprovação do Pedido
 PedidoAprovado --> PedidoEntregue : Entrega do Pedido

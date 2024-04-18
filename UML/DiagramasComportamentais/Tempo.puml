@@ -1,20 +1,20 @@
-@startuml
+@startuml tempo
 robust "Cliente" as C
 concise "Sistema" as S
 
 @0
-C is Idle
-S is Idle
+C is Ocioso
+S is Ocioso
 
 @+5
 C -> S: Faz Pedido
-C is Waiting
-S is Processing
+C is Aguardando
+S is Processando
 
 @+10
 S --> C: Confirma Pedido
-C is Satisfied
-S is Idle
+C is Sastifeito
+S is Ocioso
 @enduml
 
 

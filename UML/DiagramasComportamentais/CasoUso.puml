@@ -1,4 +1,4 @@
-@startuml
+@startuml SistemaPedidos
 actor Cliente
 actor "Funcionario"
 
