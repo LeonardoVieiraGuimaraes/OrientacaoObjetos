@@ -1,9 +1,6 @@
 @startuml
 
-
-[*] --> SD
-
-box SD
+group sd enter senha
     participant Usuario
     participant Acesso
     activate Usuario
@@ -12,21 +9,23 @@ box SD
     Acesso -> Acesso: Veriricar Senha
     Acesso --> Usuario
   
-end box
+end
 
 
 @enduml
 
 @startuml
-start
+partition sd Controle de Acesso {
+  start 
+  :sd enter senha;  
+    if () then (Senha Correta)
+      partition sd frame {
+      :Liberar porta para uma ação;
+      }
+    else (Senha Incorreta)
+      
+    endif
+    stop
+}
 
-if () then (sim)
-  partition Grupo {
-   :relese;
-  }
-else (não)
-  
-endif
-
-stop
 @enduml

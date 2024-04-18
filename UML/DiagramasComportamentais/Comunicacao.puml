@@ -1,4 +1,7 @@
 @startuml
+
+frame Cominição {
+
 actor Ator as "trabalhador : Funcionário\nProvedor de Internet"
 boundary View as "formularioLogin : LoginForm"
 control Controller as "ControllerUsuarios:\n UsersController"
@@ -15,3 +18,5 @@ View - View : "3: verificarDados()\n11: mostrarMensagem()\n<&loop-circular>"
 '<&arrow-top>
 '<&arrow-bottom>
 @enduml
+
+}
