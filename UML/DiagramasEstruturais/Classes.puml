@@ -1,6 +1,5 @@
 @startuml DiagramaDeBiblioteca
-
-' !theme reddress-darkblue
+!theme bluegray
 left to right direction
 skinparam classAttributeIconSize 0
 class Pessoa {

@@ -1,4 +1,5 @@
 @startuml ProcessoPedido
+!theme bluegray
 autonumber
 actor Cliente
 boundary Sistema

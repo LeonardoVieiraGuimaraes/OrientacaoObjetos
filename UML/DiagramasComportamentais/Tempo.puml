@@ -1,4 +1,5 @@
 @startuml tempo
+!theme bluegray
 robust "Cliente" as C
 concise "Sistema" as S
 

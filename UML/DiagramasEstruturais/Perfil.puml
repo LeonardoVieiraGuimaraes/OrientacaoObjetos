@@ -1,4 +1,5 @@
-@startuml
+@startuml Hospital
+!theme bluegray
 class Paciente {
     + nome : String
     + idade : Integer

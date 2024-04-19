@@ -1,4 +1,5 @@
 @startuml ProcessoPedido
+!theme bluegray
 [*] --> NovoPedido
 NovoPedido --> PedidoAprovado : Aprovação do Pedido
 PedidoAprovado --> PedidoEntregue : Entrega do Pedido

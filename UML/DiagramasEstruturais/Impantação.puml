@@ -1,4 +1,5 @@
-@startuml
+@startuml ServidorAplicacao
+!theme bluegray
 left to right direction
 node "Servidor Web" as web {
     artifact "Interface do Usuário"

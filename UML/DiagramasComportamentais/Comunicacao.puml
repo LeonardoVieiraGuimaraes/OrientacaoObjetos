@@ -1,5 +1,5 @@
-@startuml
-
+@startuml ControleFuncionarios
+!theme bluegray
 frame Cominição {
 
 actor Ator as "trabalhador : Funcionário\nProvedor de Internet"
