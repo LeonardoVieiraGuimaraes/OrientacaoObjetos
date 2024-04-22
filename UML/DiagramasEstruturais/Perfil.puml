@@ -1,20 +1,26 @@
 @startuml
-class Paciente {
-    + nome : String
-    + idade : Integer
-    + historicoMedico : String
-}
 
-class Médico {
-    + nome : String
-    + especialidade : String
-}
+package "<<Profile>> Biblioteca" {
+    left to right direction
+    class "Livro" <<Stereotype>> {
+        titulo : String
+        autor : String
+    }
 
-class Consulta {
-    + data : Date
-    + local : String
-}
+    class "Usuario" <<Stereotype>> {
+        nome : String
+        endereco : String
+    }
 
-Paciente "1" -- "n" Consulta : realiza >
-Médico "1" -- "n" Consulta : realiza >
+    class "Emprestimo" <<Stereotype>> {
+        dataEmprestimo : Date
+        dataDevolucao : Date
+    }
+
+    Usuario -- Emprestimo : Realiza >
+    Emprestimo -- Livro : Contem >
+}
+hide Livro circle
+hide Usuario circle
+hide Emprestimo circle
 @enduml

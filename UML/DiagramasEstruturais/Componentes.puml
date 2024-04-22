@@ -1,4 +1,5 @@
 @startuml
+!theme spacelab
 package "Sistema de Pagamento" {
     [Processador de Pagamento]
     [Gateway de Pagamento]

@@ -1,0 +1,58 @@
+@startuml
+
+
+
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+actor "Gerente" as Gerente
+left to right direction
+    rectangle "Sistema de Controle Bancário" {
+        usecase "Abrir Conta" as AbrirConta
+        usecase "Abrir Conta Corrente" as AbrirContaCorrente
+        usecase "Abrir Conta Poupança" as AbrirContaPoupança
+        usecase "Manter Cliente" as ManterCliente
+        usecase "Realizar Depósito" as RealizarDeposito
+        usecase "Realizar Saque" as RealizarSaque
+        usecase "Emitir Saldo" as EmitirSaldo
+        usecase "Emitir Extrato" as EmitirExtrato
+        usecase "Encerrar Conta" as EncerrarConta        
+        usecase "Registrar Movimento" as RegistrarMovimento
+
+        :Cliente: -- (AbrirConta)
+        :Cliente: -- (EmitirExtrato)
+        :Cliente: -- (EncerrarConta)
+        :Cliente: -- (RealizarDeposito)
+        :Cliente: -- (RealizarSaque)
+        :Cliente: -- (EmitirSaldo)
+        :Cliente: -- (EmitirSaldo)
+        
+        (AbrirConta) - :Gerente:
+        (ManterCliente)  -- :Gerente:
+            
+        :Funcionario: -- (RealizarDeposito)
+        
+       
+
+        (AbrirConta) <-- (AbrirContaCorrente) 
+        (AbrirConta) <-- (AbrirContaPoupança)
+        (RealizarSaque) ..> (EncerrarConta): <<extend>>
+        (RealizarDeposito) ..> (EncerrarConta): <<extend>>
+        (EmitirSaldo) ..> (EncerrarConta): <<include>>
+        (ManterCliente) ..> (EncerrarConta): <<extend>>
+
+
+       
+        (AbrirConta) ..> (RegistrarMovimento): <<include>>
+        (RealizarDeposito) ..> (RegistrarMovimento): <<include>>
+        (RealizarSaque) ..> (RegistrarMovimento): <<include>>
+
+
+
+       
+      
+       
+        
+
+    }
+}
+@enduml
