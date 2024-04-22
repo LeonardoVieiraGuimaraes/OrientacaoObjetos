@@ -1,6 +1,6 @@
 @startuml
 
-group sd enter senha
+box Diagrama Entrar com a Senha #White
     participant Usuario
     participant Acesso
     activate Usuario
@@ -9,15 +9,17 @@ group sd enter senha
     Acesso -> Acesso: Veriricar Senha
     Acesso --> Usuario
   
-end
+end box
 
 
 @enduml
 
 @startuml
 partition sd Controle de Acesso {
-  start 
-  :sd enter senha;  
+  start
+  partition sd enter senha {
+    :Diagrama Entrar com a Senha;
+      }
     if () then (Senha Correta)
       partition sd frame {
       :Liberar porta para uma ação;

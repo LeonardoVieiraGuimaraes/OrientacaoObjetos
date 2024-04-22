@@ -1,6 +1,6 @@
 @startuml SistemaPedidos
 actor Cliente
-actor "Funcionario"
+actor Funcionario
 
 left to right direction
 rectangle "Sistema de Pedidos" {

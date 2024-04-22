@@ -1,0 +1,16 @@
+@startuml
+abstract class Animal {
+    + fazerBarulho()
+}
+
+class Cachorro {
+    + fazerBarulho()
+}
+
+class Gato {
+    + fazerBarulho()
+}
+
+Animal <|-- Cachorro
+Animal <|-- Gato
+@enduml

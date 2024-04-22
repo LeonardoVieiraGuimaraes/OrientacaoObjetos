@@ -24,6 +24,15 @@ class Autor {
     public String getNacionalidade() {
         return nacionalidade;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
 }
 
 // Classe Livro representa o conceito de um livro (Abstração)
