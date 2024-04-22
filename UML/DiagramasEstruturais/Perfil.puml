@@ -1,4 +1,4 @@
-@startuml
+@startuml Paciente
 class Paciente {
     + nome : String
     + idade : Integer
