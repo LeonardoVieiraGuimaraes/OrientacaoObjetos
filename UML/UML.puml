@@ -1,4 +1,4 @@
-@startuml
+@startuml UML
 
     rectangle "Diagramas UML" as UML
     rectangle "Diagramas Estruturais" as DiagramasEstruturais
