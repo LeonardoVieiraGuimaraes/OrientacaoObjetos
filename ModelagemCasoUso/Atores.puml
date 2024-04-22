@@ -1,0 +1,9 @@
+@startuml Atores
+!theme bluegray
+left to right direction
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+actor "Gerente" as Gerente
+
+
+@enduml

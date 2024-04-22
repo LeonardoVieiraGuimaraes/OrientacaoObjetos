@@ -1,0 +1,23 @@
+@startuml Banco
+!theme bluegray
+' left to right direction
+
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+
+rectangle "Sistema Bancário" {
+    usecase "Abrir Conta" as AbrirConta
+    usecase "Realizar Depósito" as RealizarDeposito
+    usecase "Realizar Saque" as RealizarSaque
+}
+AbrirConta -- RealizarDeposito
+AbrirConta -- RealizarSaque
+
+Cliente -right-- AbrirConta
+Funcionario -left-- AbrirConta
+
+
+
+
+
+@enduml
