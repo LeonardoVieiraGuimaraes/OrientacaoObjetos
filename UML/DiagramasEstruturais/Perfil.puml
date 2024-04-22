@@ -1,11 +1,9 @@
 @startuml
-
-package "<<Profile>> Biblioteca" {
-    left to right direction
-    class "Livro" <<Stereotype>> {
-        titulo : String
-        autor : String
-    }
+class Paciente {
+    + nome : String
+    + idade : Integer
+    + historicoMedico : String
+}
 
     class "Usuario" <<Stereotype>> {
         nome : String

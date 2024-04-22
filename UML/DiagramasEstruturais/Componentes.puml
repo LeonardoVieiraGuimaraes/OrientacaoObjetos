@@ -1,5 +1,5 @@
-@startuml
-!theme spacelab
+@startuml SistemaPagamento
+!theme bluegray
 package "Sistema de Pagamento" {
     [Processador de Pagamento]
     [Gateway de Pagamento]

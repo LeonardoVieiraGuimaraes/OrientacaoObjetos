@@ -1,4 +1,5 @@
 @startuml ProcessoPedido
+!theme bluegray
 start
 :Cliente faz pedido;
 if (Pedido aprovado?) then (sim)

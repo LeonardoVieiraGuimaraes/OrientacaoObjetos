@@ -1,5 +1,5 @@
-@startuml
-
+@startuml ControleAcesso
+!theme bluegray
 group sd enter senha
     participant Usuario
     participant Acesso
