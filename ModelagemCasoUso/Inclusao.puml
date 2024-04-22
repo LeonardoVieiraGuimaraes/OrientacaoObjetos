@@ -1,0 +1,21 @@
+@startuml AtoresCasoUso
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+
+usecase "Realizar Depósito" as RealizarDeposito
+usecase "Realizar Saque" as RealizarSaque
+usecase "Registrar Movimento" as RegistrarMovimento
+
+
+Cliente -- RealizarDeposito
+Cliente -- RealizarSaque
+
+RealizarDeposito ..> RegistrarMovimento: <<include>>
+RealizarSaque ..> RegistrarMovimento: <<include>>
+
+
+@enduml

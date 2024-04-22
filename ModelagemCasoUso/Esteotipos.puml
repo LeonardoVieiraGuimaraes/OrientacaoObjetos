@@ -1,0 +1,11 @@
+@startuml Atores
+' !theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+usecase "Abrir Conta" as (AbrirConta) << One Shot >>
+
+
+
+@enduml

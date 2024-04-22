@@ -1,0 +1,61 @@
+@startuml CasoUso
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+
+usecase "Abrir Conta" as AbrirConta
+usecase "Abrir Conta Corrente" as AbrirContaCorrente
+usecase "Abrir Conta Poupança" as AbrirContaPoupanca
+
+
+
+AbrirConta <|--  AbrirContaCorrente
+AbrirContaPoupanca --|> AbrirConta
+
+
+@enduml
+
+@startuml Atores
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+actor  "Pessoa Física" as PessoaFisica
+actor  "Pessoa Jurídica" as PessoaJuridica
+
+
+
+
+Cliente <|--  PessoaFisica
+PessoaJuridica --|> Cliente
+
+@enduml
+
+@startuml AtoresCasoUso
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Usuario Júnior" as UsuarioJunior
+actor  "Usuario Sênior" as UsuarioSenior
+actor  "Administrador" as Administrador
+
+usecase "Ler Arquivo" as LerArquivo
+usecase "Gravar Arquivo" as GravarArquivo
+usecase "Excluir Arquivo" as ExcluirArquivo
+
+
+UsuarioJunior <|-down-  UsuarioSenior
+UsuarioSenior <|-down-  Administrador
+
+UsuarioJunior -right- LerArquivo
+UsuarioSenior -right- GravarArquivo
+Administrador -right- ExcluirArquivo
+
+
+@enduml

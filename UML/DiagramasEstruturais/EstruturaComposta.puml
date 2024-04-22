@@ -1,4 +1,5 @@
-@startuml
+@startuml ComponentesComputador
+!theme bluegray
 package "Computador" {
   class "CPU" {
     + execute()

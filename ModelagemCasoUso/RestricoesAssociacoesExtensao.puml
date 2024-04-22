@@ -1,0 +1,49 @@
+@startuml Extensao
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+
+usecase "Realizar Login" as (RealizarLogin)
+usecase "Auto registrar" as (AutoRegistrar)
+
+note "{Caso o Cliente ainda \n não esteja registrado}" as N1
+
+:Cliente: -- RealizarLogin
+
+RealizarLogin <|.. N1
+N1 .. AutoRegistrar: <<extend>>
+
+@enduml
+
+
+@startuml Extensao2
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+
+usecase "Encerrar Conta" as (EncerrarConta)
+usecase "Realizar Saque" as (RealizarSaque)
+usecase "Realizar Depósito" as (RealizarDeposito)
+
+
+note "{Se o Saldo for positivo}" as N1
+note "{Se o Saldo for Negativo}" as N2
+
+
+:Cliente: -- EncerrarConta
+:Funcionario: -- EncerrarConta
+
+EncerrarConta <|.. N1
+N1 .. RealizarSaque: <<extend>>
+
+EncerrarConta <|.. N2
+N2 .. RealizarDeposito: <<extend>>
+
+@enduml

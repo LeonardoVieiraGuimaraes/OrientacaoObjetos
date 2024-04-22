@@ -1,8 +1,8 @@
-@startuml
+@startuml UML
 
-    rectangle "UML" as UML
+    rectangle "Diagramas UML" as UML
     rectangle "Diagramas Estruturais" as DiagramasEstruturais
-    rectangle "Diagrama Compotamental" as DiagramaCompotamental
+    rectangle "Diagramas Comportamentais" as DiagramaCompotamental
     rectangle "Diagrama de Classes" as DiagramaClasses
     rectangle "Diagrama de Objetos" as DiagramaObjetos
     rectangle "Diagrama de Componentes" as DiagramaComponentes

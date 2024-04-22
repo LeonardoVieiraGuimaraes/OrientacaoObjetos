@@ -1,4 +1,5 @@
 @startuml SistemaPedidos
+!theme bluegray
 actor Cliente
 actor Funcionario
 

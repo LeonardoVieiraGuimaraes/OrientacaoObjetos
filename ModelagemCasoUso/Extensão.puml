@@ -1,0 +1,45 @@
+@startuml Extensao
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+
+usecase "Realizar Login" as RealizarLogin
+usecase "Auto registrar" as AutoRegistrar
+
+
+
+Cliente -- RealizarLogin
+
+RealizarLogin <.. AutoRegistrar: <<extend>>
+
+
+@enduml
+
+
+@startuml Extensao2
+!theme bluegray
+' left to right direction
+
+skinparam defaultFontSize 30
+
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+
+usecase "Encerrar Conta" as EncerrarConta
+usecase "Realizar Saque" as RealizarSaque
+usecase "Realizar Depósito" as RealizarDeposito
+
+
+
+Cliente -right-- EncerrarConta
+EncerrarConta -right-- Funcionario
+
+EncerrarConta <|..down. RealizarSaque: <<extend>>
+EncerrarConta <|..down. RealizarDeposito: <<extend>>
+
+
+
+@enduml

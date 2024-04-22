@@ -1,4 +1,5 @@
-@startuml
+@startuml EmprestimoLivro
+!theme bluegray
 left to right direction
 object "Pessoa 1" as p1 {
     nome : "João"

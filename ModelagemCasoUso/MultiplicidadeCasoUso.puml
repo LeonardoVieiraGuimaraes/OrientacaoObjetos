@@ -1,0 +1,13 @@
+@startuml multiplicidade
+!theme bluegray
+left to right direction
+
+actor "Sócio" as Socio
+actor "Funcionário" as Funcionario
+
+usecase "Cadastrar Sócio" as (CadastrarSocio)
+
+:Socio:"1" --- "1" (CadastrarSocio)
+(CadastrarSocio) "1..*" --- "1" :Funcionario:
+
+@enduml

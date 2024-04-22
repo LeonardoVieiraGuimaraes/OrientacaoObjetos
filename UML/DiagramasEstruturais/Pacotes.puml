@@ -1,4 +1,5 @@
-@startuml
+@startuml MVC
+!theme bluegray
 left to right direction
 package "Aplicativo Web" {
     package "Model" {

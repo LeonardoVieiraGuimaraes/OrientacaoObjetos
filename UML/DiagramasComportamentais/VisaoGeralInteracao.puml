@@ -1,6 +1,6 @@
 @startuml
 
-box Diagrama Entrar com a Senha #White
+group sd enter senha
     participant Usuario
     participant Acesso
     activate Usuario

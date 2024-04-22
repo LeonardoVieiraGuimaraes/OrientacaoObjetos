@@ -1,4 +1,5 @@
-@startuml
+@startuml SistemaPagamento
+!theme bluegray
 package "Sistema de Pagamento" {
     [Processador de Pagamento]
     [Gateway de Pagamento]

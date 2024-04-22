@@ -1,0 +1,18 @@
+@startuml Atores
+!theme bluegray
+left to right direction
+
+skinparam defaultFontSize 30
+
+usecase "Abrir Conta" as AbrirConta
+usecase "Abrir Conta Corrente" as AbrirContaCorrente
+usecase "Abrir Conta Poupança" as AbrirContaPoupança
+usecase "Registrar Movimento" as RegistrarMovimento
+usecase "Emitir Extrato" as EmitirExtrato
+usecase "Emitir Saldo" as EmitirSaldo
+usecase "Encerrar Conta" as EncerrarConta  
+usecase "Manter Cliente" as ManterCliente
+usecase "Realizar Depósito" as RealizarDeposito
+usecase "Realizar Saque" as RealizarSaque
+
+@enduml
