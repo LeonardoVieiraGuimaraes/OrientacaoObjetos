@@ -1,4 +1,4 @@
-@startuml Cinema
+@startuml Clube
 !theme bluegray
 left to right direction
 
@@ -7,7 +7,7 @@ left to right direction
     actor "Sócio" as Socio
     actor "Clube" as Clube
 
-    rectangle "Sistema de Controle de Cinema" {
+    rectangle "Sistema de controle de clube social " {
         usecase "Apresentar Pedido\nde Aceitação" as PedidoAceitacao
         usecase "Associar Sócio" as AssociarSocio
         usecase "Quitar Mensalidade" as QuitarMensalidade
