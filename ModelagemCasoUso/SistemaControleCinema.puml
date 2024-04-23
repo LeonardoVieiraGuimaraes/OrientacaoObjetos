@@ -1,0 +1,29 @@
+@startuml Cinema
+!theme bluegray
+left to right direction
+
+
+    actor "Candidato" as Candidato
+    actor "Sócio" as Socio
+    actor "Clube" as Clube
+
+    rectangle "Sistema de Controle de Cinema" {
+        usecase "Apresentar Pedido\nde Aceitação" as PedidoAceitacao
+        usecase "Associar Sócio" as AssociarSocio
+        usecase "Quitar Mensalidade" as QuitarMensalidade
+        usecase "Gerar Mensalidade" as GerarMensalidade
+        usecase "Associar Dependêntes" as AssociarDependentes
+    }
+
+    Socio -|> Candidato
+    Socio -- QuitarMensalidade
+    Socio -- AssociarSocio
+    Candidato -- PedidoAceitacao
+    GerarMensalidade - Clube
+    Clube -up-- QuitarMensalidade
+    Clube -up-- AssociarSocio
+    AssociarDependentes .up.|> AssociarSocio : <<extends>>
+
+    
+
+@enduml

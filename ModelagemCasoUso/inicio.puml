@@ -1,0 +1,30 @@
+@startuml Biblioteca
+!theme bluegray
+left to right direction
+
+actor "Cliente" as Cliente
+actor "Funcionário" as Funcionario
+
+rectangle "Sistema de Biblioteca" {
+    usecase "Pesquisar Livro" as PesquisarLivro
+    usecase "Emprestar Livro" as EmprestarLivro
+    usecase "Devolver Livro" as DevolverLivro
+    usecase "Registrar Livro" as RegistrarLivro
+    usecase "Remover Livro" as RemoverLivro
+    usecase "Verificar Disponibilidade" as VerificarDisponibilidade
+    usecase "Pagar Multa" as PagarMulta
+}
+
+Cliente -- PesquisarLivro
+Cliente -- EmprestarLivro
+Cliente -- DevolverLivro
+
+Funcionario -up- RegistrarLivro
+Funcionario -up- RemoverLivro
+Funcionario -up- VerificarDisponibilidade
+Funcionario -up- PagarMulta
+
+EmprestarLivro -- VerificarDisponibilidade : <<include>>
+DevolverLivro -- PagarMulta : <<extend>>
+
+@enduml

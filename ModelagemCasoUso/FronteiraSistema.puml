@@ -1,20 +1,24 @@
-@startuml Banco
+@startuml Cinema
 !theme bluegray
-' left to right direction
+left to right direction
 
-actor "Cliente" as Cliente
-actor "Funcionário" as Funcionario
+package "Sistema de Controle de Cinema" {
+    actor "Cliente" as Cliente
+    actor "Funcionário" as Funcionario
 
-rectangle "Sistema Bancário" {
-    usecase "Abrir Conta" as AbrirConta
-    usecase "Realizar Depósito" as RealizarDeposito
-    usecase "Realizar Saque" as RealizarSaque
+    rectangle "Operações" {
+        usecase "Registrar Sala" as RegistrarSala
+        usecase "Registrar Filme" as RegistrarFilme
+        usecase "Criar Sessão" as CriarSessao
+        usecase "Comprar Ingresso" as ComprarIngresso
+    }
+
+    Cliente -left-- ComprarIngresso
+    Funcionario -- RegistrarSala
+    Funcionario -- RegistrarFilme
+    Funcionario -- CriarSessao
+    RegistrarSala -- CriarSessao : <<extend>>
+    RegistrarFilme -- CriarSessao : <<extend>>
+    CriarSessao -- ComprarIngresso : <<extend>>
 }
-AbrirConta -- RealizarDeposito
-AbrirConta -- RealizarSaque
-
-Cliente -right-- AbrirConta
-Funcionario -left-- AbrirConta
-
-
 @enduml
