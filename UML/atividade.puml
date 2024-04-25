@@ -1,0 +1,40 @@
+@startuml Diagrama_Componentes:
+
+package "Sistema de Pagamento" {
+    [Processador de Cartão]
+    [Calculadora de Impostos]
+}
+
+[Interface de Usuário]
+[Base de Dados]
+
+[Processador de Cartão] ..> [Interface de Usuário] : usa
+[Calculadora de Impostos] ..> [Base de Dados] : usa
+
+@enduml
+
+@startuml Diagrama_Implantação:
+
+
+node "Servidor Web" {
+    artifact "Aplicação de Comércio Eletrônico"
+}
+
+node "Banco de Dados" {
+    database "PostgreSQL"
+}
+
+"Aplicação de Comércio Eletrônico" ..> "PostgreSQL" : se conecta a
+
+@enduml
+
+@startuml Diagrama_Classes:
+
+class "Produto" {
+    -nome: String
+    -preco: Double
+    +Produto(nome: String, preco: Double)
+}
+
+
+@enduml
