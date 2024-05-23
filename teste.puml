@@ -14,3 +14,31 @@ class Gato {
 Animal <|-- Cachorro
 Animal <|-- Gato
 @enduml
+
+
+@startuml
+title Comparação entre Programação Estruturada e Orientada a Objetos
+
+scale 800 width
+skinparam linetype ortho
+skinparam shadowing false
+
+partition "Programação Estruturada" {
+    note right
+        - Baseada em procedimentos
+        - Código organizado em funções
+        - Dados e funções são separados
+        - Foco no fluxo do programa
+    end note
+}
+
+partition "Programação Orientada a Objetos" {
+    note right
+        - Baseada em objetos
+        - Código organizado em classes e objetos
+        - Dados e funções são encapsulados em objetos
+        - Foco na interação entre objetos
+    end note
+}
+
+@enduml
