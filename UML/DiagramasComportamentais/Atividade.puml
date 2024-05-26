@@ -10,3 +10,10 @@ else (não)
     stop
 endif
 @enduml
+
+@startuml
+(*) --> "Solicitação da Reserva"
+--> "Pagamento"
+--> "Emissão do Bilhete"
+--> (*)
+@enduml

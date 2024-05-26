@@ -27,3 +27,28 @@ UC3 ..> UC5 : <<extend>>
 
 @enduml
 
+
+@startuml Biblioteca
+!theme bluegray
+actor "Usuário" as Usuario
+actor "Bibliotecário" as Bibliotecario
+
+left to right direction
+rectangle "Sistema de Gerenciamento de Biblioteca" {
+    usecase "Buscar Livros" as UC1
+    usecase "Verificar Disponibilidade" as UC2
+    usecase "Solicitar Empréstimo" as UC3
+    usecase "Devolver Livro" as UC4
+    usecase "Adicionar Livro" as UC5
+    usecase "Remover Livro" as UC6
+}
+
+Usuario --> UC1
+Usuario --> UC2
+Usuario --> UC3
+Usuario --> UC4
+Bibliotecario -up-> UC5
+Bibliotecario -up-> UC6
+
+@enduml
+
