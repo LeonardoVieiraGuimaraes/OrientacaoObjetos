@@ -28,3 +28,61 @@ EmprestarLivro -- VerificarDisponibilidade : <<include>>
 DevolverLivro -- PagarMulta : <<extend>>
 
 @enduml
+
+@startuml
+!theme bluegray
+left to right direction
+actor Cliente
+actor Funcionário
+rectangle Sistema {
+  usecase "Realizar Compra" as RC
+  usecase "Visualizar Produto" as VP
+  Cliente -- RC : 1..*
+  Funcionário -UP- VP : 1
+  Funcionário -up- RC : 1..*
+}
+@enduml
+
+@startuml
+!theme bluegray
+left to right direction
+actor Cliente
+actor Funcionário
+rectangle Sistema {
+  usecase "Realizar Compra" as RC
+  usecase "Visualizar Produto" as VP
+  usecase "Incluir Produto no Carrinho" as IPC
+  usecase "Aplicar Desconto" as AD
+  
+  Funcionário -- RC
+  Funcionário -- VP
+  Cliente -- VP
+  Cliente -- RC
+  
+  RC ..> IPC : <<include>>
+  RC ..> AD : <<extend>>
+}
+@enduml
+
+
+
+@startuml
+!theme bluegray
+left to right direction
+
+actor Usuário
+Usuário <|-- Cliente
+Usuário <|-- Funcionário
+
+rectangle "Sistema" {
+  usecase "Realizar Compra" as RC
+  usecase "Visualizar Produto" as VP
+  usecase "Incluir Produto no Carrinho" as IPC
+  usecase "Aplicar Desconto" as AD
+  Cliente -- RC
+  Funcionário -- RC
+  Funcionário -- VP
+  RC ..> IPC : <<include>>
+  RC ..> AD : <<extend>>
+}
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+' !theme bluegray
+
+class Autor {
+    -nome: String
+    -dataNascimento: String
+    -cidadeNascimento: String
+    -bibliografia: String
+    -livrosPublicados: List<Livro>
+    +Autor(nome: String, dataNascimento: String, cidadeNascimento: String, bibliografia: String)
+}
+
+class Livro {
+    -titulo: String
+    -autor: Autor
+    -dataPublicacao: String
+    -editora: String
+    +Livro(titulo: String, autor: Autor, dataPublicacao: String, editora: String)
+}
+
+Autor "1" -- "0..*" Livro : contém
+@enduml
