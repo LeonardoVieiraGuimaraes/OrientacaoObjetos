@@ -1,22 +1,50 @@
-@startuml ControleFuncionarios
-!theme bluegray
-frame Cominição {
+@startuml
+skinparam classAttributeIconSize 0
 
-actor Ator as "trabalhador : Funcionário\nProvedor de Internet"
-boundary View as "formularioLogin : LoginForm"
-control Controller as "ControllerUsuarios:\n UsersController"
-entity Modelo as "BancoFuncionarios : Worker"
 
-Ator - (View): "1: abrirFormulario()\n2: inserirDadosAutenticacao()\n12:fecharFormulario()\n<&arrow-right>"
-View - View : "3: verificarDados()\n11: mostrarMensagem()\n<&loop-circular>"
-(View) -- (Controller) : "4: verificarLogin()\n6: verificarSenha()\n8: aumentarContador()\n9: obterGrupoUsuario()\n<&arrow-bottom>"
-(Controller) -left- (Modelo) : "5: selecionar()\n7: selecionar()\n9: selecionar()\n<&arrow-left>"
-
-'Outros ícones de setas
-'<&arrow-left>
-'<&arrow-right>
-'<&arrow-top>
-'<&arrow-bottom>
-@enduml
-
+' Associação Unária ou Reflexiva
+class Employee {
+    - name: String
+    - supervisor: Employee
 }
+
+Employee "1" -- "0..1" Employee : supervisor
+
+' Associação Binária
+class Estudante {
+    - nome: String
+    - matricula: String
+}
+
+Estudante "0..*" -left- "1..*" Turma
+
+' Associação Ternária
+
+class Professor {
+    - sobrenome: String
+    - idade: int
+    - disciplina: String
+}
+
+class Turma {
+    - codigo: String
+    - semestre: String
+    - numeroDeAlunos: int
+}
+
+class SalaDeAula {
+    - localizacao: String
+    - capacidade: int
+}
+
+' (Student, Course) .. Enrollment
+
+<> diamond
+
+
+diamond -left-- "leciona *..1" Professor
+diamond -down- "utiliza *..1" SalaDeAula
+diamond --right-- "possui *..1 " Turma
+
+
+@enduml

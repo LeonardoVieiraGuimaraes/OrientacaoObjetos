@@ -1,16 +1,354 @@
 @startuml
-abstract class Animal {
-    + fazerBarulho()
+left to right direction
+note " {Um sócio só poderá\nrealizar uma locação\ndepois de ter devolvido\na locação anterior}" as N1
+
+class Socio {
+
+    + nome: String
 }
 
-class Cachorro {
-    + fazerBarulho()
+class Locacao {
+    + dataLocacao: Date
 }
 
-class Gato {
-    + fazerBarulho()
-}
+Socio "1" -- "0..*" Locacao: realiza
 
-Animal <|-- Cachorro
-Animal <|-- Gato
+(Socio, Locacao) -- N1: realiza
+
+
+   
 @enduml
+
+' class Conta_Comum {
+'     # nro_conta: long
+'     # dt_abertura: Date
+'     # dt_encerramento: Date [0..1]
+'     # situacao: int
+'     # senha: int
+'     # saldo: double = 0
+'     + abrir_Conta(int): long
+'     + consultar_Conta(long): int
+'     + validar_Senha(int): int
+'     + saldo_Conta(): double
+'     + extrato_Conta(): String
+'     + sacar_Valor(double): int
+'     + depositar_Valor(long, double): int
+'     + encerrar_Conta(): int
+' }
+
+' note bottom of Conta_Comum
+'     A senha deve ter 6 dígitos
+'     O saldo deve ser recalculado 
+'     sempre que houver um depósito ou saque
+'     As datas de abertura e 
+'     encerramento devem ser tomadas do sistema 
+'     quando a conta é aberta ou encerrada}
+' end note
+
+
+@startuml
+
+' Definindo os estilos para os estereótipos
+skinparam class {
+    BackgroundColor<<entity>> LightGreen
+    BackgroundColor<<boundary>> LightBlue
+    BackgroundColor<<control>> LightYellow
+}
+
+' Definindo as classes com os estereótipos
+class Cliente <<entity>> {
+    - id: int
+    - nome: string
+    - endereco: string
+}
+
+class InterfaceCliente <<boundary>> {
+    + exibirInformacoesCliente(idCliente: int): string
+    + cadastrarNovoCliente(nome: string, endereco: string): void
+}
+
+class ControladorCliente <<control>> {
+    - cliente: Cliente
+    + gerenciarInformacoesCliente(idCliente: int): string
+    + cadastrarNovoCliente(nome: string, endereco: string): void
+}
+
+' Relacionamentos entre as classes
+Cliente -- ControladorCliente
+ControladorCliente -- InterfaceCliente
+
+@enduml
+
+
+@startuml
+
+boundary    Interface_Banco   
+control     ControladorBanco     
+entity      Conta_Comun      
+
+
+@enduml
+
+@startuml
+
+package "Sistema de Gerenciamento de Biblioteca" <<system>> {
+    package "Módulo de Autenticação" <<subsystem>> {
+        class LoginController
+        class AuthService
+        class User
+    }
+
+    package "Módulo de Empréstimos" <<subsystem>> {
+        class LoanController
+        class LoanService
+        class Loan
+    }
+
+    package "Módulo de Catalogação" <<subsystem>> {
+        class CatalogController
+        class CatalogService
+        class Book
+    }
+
+    "Módulo de Autenticação" ..> "Módulo de Empréstimos" : dependência
+}
+
+@enduml
+
+
+@startuml
+skinparam classAttributeIconSize 0
+class Socio {
+    - nome: String
+    - endereco: String
+    - telefone: String
+    + cadastrarDependente(nome: String, idade: int): void
+}
+
+class Dependente {
+    - nome: String
+    - idade: int
+    + exibirInformacoes(): String
+}
+
+object socio1 {
+    nome = "João"
+    endereco = "Av. Brasil, 123"
+    telefone = "(77) 1234-5678"
+}
+
+object dependente1 {
+    nome = "Maria"
+    idade = 10
+}
+Socio --left- "0..1" Dependente: possui
+
+Socio <.. socio1 : <<instantiate>>
+Dependente  <.. dependente1: <<instantiate>>
+
+socio1 -left-- dependente1
+
+@enduml
+
+
+@startuml
+
+package "Controle de Iluminação" {
+    component "ControladorLuz" as ControladorLuz {
+        + ligarDesligar(): void
+        + ajustarIntensidade(intensidade: int): void
+        + programarHorario(horario: string): void
+    }
+    
+    component "Agendador" as Agendador
+    
+    component "Sensor de Presença" as SensorPresenca
+    
+    ControladorLuz --> Agendador
+    ControladorLuz --> SensorPresenca
+}
+
+interface "Interface de Comando" as InterfaceComando
+interface "Interface de Comunicação" as InterfaceComunicacao
+
+' Portas
+ControladorLuz ..> InterfaceComando : ComandoExterno
+ControladorLuz ..> InterfaceComunicacao : ComunicacaoDispositivos
+
+@enduml
+
+
+@startuml
+skinparam BackgroundColor transparent
+skinparam componentStyle uml2
+component "Processador" {
+    class UnidadeDeControle
+    class UnidadeLogicaEAritmetica
+}
+
+@enduml
+
+
+@startuml
+left to right direction
+[          <<executable>> \n Gerenciador de Contas]-(0->[SGBD]
+
+
+
+@enduml
+
+
+
+
+
+@startuml
+left to right direction
+
+component "Placa Mãe" as PlacaMae {
+    portin p1
+    component "<<executable>>\nProcesador" as CPU 
+    component "Memoria RAM" as MRAM 
+    component "Memoria ROM" as MROM 
+    portout p2
+    interface i1
+    interface i2
+    interface i3
+    interface i4
+    
+}
+
+
+interface iTeclado
+interface iMonitor
+
+
+iTeclado -- p1
+p1 -> i1: "<<delegate>>"
+i1 -left- CPU
+
+i3 )-up- CPU
+MROM -up- i3
+i2 )-UP- CPU
+MRAM -up- i2
+
+CPU -down-( i4
+i4 -> p2: "<<delegate>>"
+iMonitor -- p2
+
+
+
+
+
+
+@enduml
+
+
+@startuml
+
+package "Servidor Web" <<server>> {
+    artifact "Aplicação Web"
+}
+
+package "Servidor de Banco de Dados" <<database server>> {
+    artifact "Banco de Dados MySQL"
+}
+
+package "Servidor de Cache Distribuído" <<cache server>> {
+    artifact "Redis Cache"
+}
+
+node "Servidor Web" as WebServer{
+    artifact "Aplicação Web"
+}
+node "Servidor de Banco de Dados" as DBServer
+node "Servidor de Cache Distribuído" as CacheServer
+
+WebServer --> DBServer : Conexão de Banco de Dados
+WebServer --> CacheServer : Uso de Cache
+
+@enduml
+
+
+@startuml
+left to right direction
+node "Servidor Web" as WebServer {
+    artifact "Aplicação Web"
+}
+
+node "Servidor de Banco de Dados" as DBServer {
+    artifact "Banco de Dados MySQL"
+}
+
+node "Servidor de Cache Distribuído" as CacheServer {
+    artifact "Redis Cache"
+}
+
+
+CacheServer  -- WebServer: Uso de Cache
+WebServer -- DBServer : "Conexão de \n Banco de Dados"
+
+@enduml
+
+
+@startuml
+
+class Cliente {
+    - nome: String
+    - idade: int
+    + Cliente(nome: String, idade: int)
+    + getNome(): String
+    + getIdade(): int
+}
+
+class Conta {
+    - numero: int
+    - saldo: double
+    + Conta(numero: int, saldo: double)
+    + getNumero(): int
+    + getSaldo(): double
+    + depositar(valor: double)
+    + sacar(valor: double)
+}
+
+collaboration AberturaDeConta {
+    role Cliente
+    role Conta
+}
+
+Cliente --> (Cliente: João, 30)
+Conta --> (Conta: 1234, 1000.0)
+
+AberturaDeConta-> Cliente: Interage
+AberturaDeConta-> Conta: Interage
+
+interface Porta {
+    + enviarMensagem(mensagem: String)
+    + receberMensagem(mensagem: String)
+}
+
+class Gateway implements Porta {
+    + enviarMensagem(mensagem: String)
+    + receberMensagem(mensagem: String)
+}
+
+Cliente --|> Porta
+Gateway --|> Porta
+
+@enduml
+
+@startuml
+
+actor Usuário
+boundary SistemaEcommerce {
+    - realizarBusca(palavraChave: String): ResultadoBusca
+}
+
+actor SistemaExterno
+
+Usuário --> (SistemaEcommerce): Realiza busca
+(SistemaEcommerce) --> (ResultadoBusca): Retorna resultados
+
+:SistemaExterno: --(SistemaEcommerce): Sincroniza dados
+
+@enduml
+
