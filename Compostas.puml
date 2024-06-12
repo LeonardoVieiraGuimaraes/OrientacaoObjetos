@@ -1,0 +1,90 @@
+@startuml
+left to right direction
+
+storage  AbrirConta  #aliceblue;line.dotted{
+    rectangle "Cliente: Pessoa" as r1
+    rectangle "Conta: Conta_Comun" as r2
+
+}
+
+r1 - r2
+@enduml
+
+@startuml
+left to right direction
+
+storage  AbrirConta  #aliceblue;line.dotted{
+    rectangle "Cliente: Pessoa" as r1
+    rectangle "Conta: Conta_Comun" as r2
+
+}
+
+r1 - r2
+@enduml
+
+@enduml
+
+@startuml
+
+
+storage  AbrirConta  #aliceblue;line.dotted{
+    rectangle "Cliente: Pessoa" as r1
+    rectangle "Conta: Conta_Comun" as r2
+
+}
+card card [
+    Conta_Comun
+    ----
+    + abrir_conta()
+]
+
+r1 - r2
+card <... AbrirConta
+@enduml
+
+
+@startuml
+
+left to right direction
+
+card PlacaMae {
+    portin p1
+    portout p2
+}
+iTeclado --  p1 
+p2 --( iMonitor
+@enduml
+
+@startuml
+
+
+card PlacaMae as c {
+
+    portout p1
+    portout p2
+
+    rectangle "p:Processador" as r1{
+        portout p3
+        portout p4
+    }
+     rectangle "rom:Memorom" as r2{
+        portin p5
+       
+    }
+    left to right direction
+     rectangle "ram :Memoram" as r3{
+        portin p6
+    
+    }
+   
+}
+iTeclado ---- p1 
+p1 ----- r1
+r1 -------- p2
+iMonitor )----- p2
+p3 ---- p5
+p4 ---- p6
+
+
+
+@enduml

@@ -352,3 +352,21 @@ Usuário --> (SistemaEcommerce): Realiza busca
 
 @enduml
 
+@startuml
+actor Actor as "worker : Usuario"
+boundary View as "loginForm : LoginForm"
+control Controller as "usersController:\n UsersController"
+entity Model as "WorkersDB : Worker"
+
+Actor - (View): "1: openForm()\n2: inputAuthData()\n12:closeForm()\n<&arrow-right>"
+View - View : "3: verifyData()\n11: showMessage()\n<&loop-circular>"
+(View) -- (Controller) : "4: checkLogin()\n6: checkPassword()\n8: increaseCounter()\n9: getUserGroup()\n<&arrow-bottom>"
+(Controller) -left- (Model) : "5: select()\n7: select()\n9: select()\n<&arrow-left>"
+
+
+'Others arrows icons
+'<&arrow-left>
+'<&arrow-right>
+'<&arrow-top>
+'<&arrow-bottom>
+@enduml
