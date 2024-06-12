@@ -1,68 +1,17 @@
 @startuml
-skinparam classAttributeIconSize 0
-
-class Funcionario {
-    -String nome
-    -String endereco
-    -String telefone
-    +Funcionario(String, String, String)
-    +String getNome()
-    +void setNome(String)
-    +String getEndereco()
-    +void setEndereco(String)
-    +String getTelefone()
-    +void setTelefone(String)
-    +void trabalhar()
+abstract class Animal {
+    + fazerBarulho()
 }
 
-@enduml
-
-@startuml
-skinparam classAttributeIconSize 0
-class Livro {
-    - titulo: String
-    - autor: String
-    - ISBN: String
-    - disponibilidade: Boolean
-    + numInstancias: static int
-    + final double PI = 3.14
-
-    + getTitulo(): String
-    + setTitulo(titulo: String): void
-    + getAutor(): String
-    + setAutor(autor: String): void
-    + isDisponivel(): Boolean
-    + setDisponibilidade(disp: Boolean): void
-    + Livro(titulo: String, autor: String)
-    + static valorAbsoluto(x: int): int
-}
-@enduml
-
-@startuml
-left to right direction
-skinparam classAttributeIconSize 0
-class Ator {
-    - nom_ator: String
+class Cachorro {
+    + fazerBarulho()
 }
 
-class Filme {
-    - tit_filme: String
-    - dur_filme: Time
+class Gato {
+    + fazerBarulho()
 }
 
-class Atuacao {
-    - papel: String
-}
-
-
-
-Ator "1..*" -- "1..*" Filme : atua
-(Ator, Filme) .. Atuacao
-class Atuacao {
-  drop()
-  cancel()
-}
-
-
+Animal <|-- Cachorro
+Animal <|-- Gato
 @enduml
 
