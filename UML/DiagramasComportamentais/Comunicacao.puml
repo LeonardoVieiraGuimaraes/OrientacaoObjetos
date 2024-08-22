@@ -48,3 +48,23 @@ diamond --right-- "possui *..1 " Turma
 
 
 @enduml
+
+@startuml
+actor Ator as "trabalhador : Funcionário\nProvedor de Internet"
+boundary Visao as "formularioLogin : LoginForm"
+control Controlador as "controladorUsuarios:\n UsersController"
+entity Modelo as "BancoFuncionarios : Worker"
+
+Ator - (Visao): "1: abrirFormulario()\n2: inserirDadosAutenticacao()\n12:fecharFormulario()\n<&arrow-right>"
+Visao - Visao : "3: verificarDados()\n11: mostrarMensagem()\n<&loop-circular>"
+(Visao) -- (Controlador) : "4: verificarLogin()\n6: verificarSenha()\n8: aumentarContador()\n9: obterGrupoUsuario()\n<&arrow-bottom>"
+(Controlador) -left- (Modelo) : "5: selecionar()\n7: selecionar()\n9: selecionar()\n<&arrow-left>"
+
+'Outros ícones de setas
+'<&arrow-left>
+'<&arrow-right>
+'<&arrow-top>
+'<&arrow-botto
+
+@enduml
+
